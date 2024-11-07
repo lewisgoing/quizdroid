@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         repository = QuizApp.getInstance().getRepository()
         listView = findViewById(R.id.topicList)
 
-        // Fixed adapter implementation
         val adapter = object : ArrayAdapter<Topic>(
             this,
             android.R.layout.simple_list_item_2,
