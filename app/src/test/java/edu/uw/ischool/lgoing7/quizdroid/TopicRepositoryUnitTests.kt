@@ -15,7 +15,7 @@ class TopicRepositoryUnitTests {
     @Test
     fun testGetAllTopics() {
         val topics = repository.getAllTopics()
-        // Check that we have all 3 topics (Math, Physics, Marvel) and that titles match
+        // testing that we have all 3 topics (Math, Physics, Marvel) and that titles match
         assertEquals(3, topics.size)
 
         val titles = topics.map { it.title }.toSet()
