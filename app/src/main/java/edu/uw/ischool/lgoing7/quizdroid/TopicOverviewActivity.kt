@@ -9,18 +9,22 @@ import android.content.Intent
 
 class TopicOverviewActivity : AppCompatActivity() {
     private var position = 0
+    private lateinit var repository: TopicRepository
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_topic_overview)
 
+        repository = QuizApp.getInstance().getRepository()
         position = intent.getIntExtra("position", 0)
-        val topic = MainActivity.topics[position]
 
-        findViewById<TextView>(R.id.descriptionText).text = topic.longDesc
-        findViewById<TextView>(R.id.questionCountText).text =
-            "This quiz contains ${topic.questions.size} questions"
+        val topic = repository.getTopicByIndex(position)
+        topic?.let {
+            findViewById<TextView>(R.id.descriptionText).text = it.longDesc
+            findViewById<TextView>(R.id.questionCountText).text =
+                "This quiz contains ${it.questions.size} questions"
+        }
 
         findViewById<Button>(R.id.beginButton).setOnClickListener {
             val intent = Intent(this, QuestionActivity::class.java)
