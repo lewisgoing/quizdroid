@@ -3,4 +3,12 @@
     <string name="begin">Begin</string>
     <string name="submit">Submit</string>
     <string name="next">Next</string>
+    <string name="preferences">Preferences</string>
+    <string name="save">Save</string>
+    <string name="enter_url">Enter URL</string>
+    <string name="refresh_interval_minutes">Refresh Interval (minutes)</string>
+    <string name="enter_interval_in_minutes">Enter interval in minutes</string>
+    <string name="question_data_url">Question Data URL</string>
+    <string name="http_tednewardsandbox_site44_com_questions_json">http://tednewardsandbox.site44.com/questions.json</string>
+    <string name="_15">15</string>
 </resources>

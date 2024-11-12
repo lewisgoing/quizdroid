@@ -1,30 +1,23 @@
 package edu.uw.ischool.lgoing7.quizdroid
 
 import android.app.Application
-import android.util.Log
 
 class QuizApp : Application() {
     private lateinit var repository: TopicRepository
+    private lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate() {
         super.onCreate()
-        Log.d("QuizApp", "QuizApp is being initialized")
-        repository = InMemoryTopicRepository()
+        instance = this
+        preferencesManager = PreferencesManager(applicationContext)
+        repository = InMemoryTopicRepository(this, preferencesManager)
     }
 
-    fun getRepository(): TopicRepository {
-        return repository
-    }
+    fun getRepository(): TopicRepository = repository
+    fun getPreferencesManager(): PreferencesManager = preferencesManager
 
     companion object {
         private lateinit var instance: QuizApp
-
-        fun getInstance(): QuizApp {
-            return instance
-        }
-    }
-
-    init {
-        instance = this
+        fun getInstance(): QuizApp = instance
     }
 }
