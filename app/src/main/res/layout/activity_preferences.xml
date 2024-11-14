@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:autofillHints="@string/http_tednewardsandbox_site44_com_questions_json"
         android:hint="@string/enter_url"
         android:inputType="textUri"
         android:text="@string/http_tednewardsandbox_site44_com_questions_json" />
@@ -33,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:autofillHints="@string/enter_interval_in_minutes"
         android:hint="@string/enter_interval_in_minutes"
         android:inputType="number"
         android:text="@string/_15" />

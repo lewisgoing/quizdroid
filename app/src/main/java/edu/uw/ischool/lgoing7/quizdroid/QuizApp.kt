@@ -10,7 +10,7 @@ class QuizApp : Application() {
         super.onCreate()
         instance = this
         preferencesManager = PreferencesManager(applicationContext)
-        repository = InMemoryTopicRepository(this, preferencesManager)
+        repository = InMemoryTopicRepository(this)
     }
 
     fun getRepository(): TopicRepository = repository

@@ -25,19 +25,18 @@ interface TopicRepository {
 }
 
 class InMemoryTopicRepository(
-    private val context: Context,
-    private val preferencesManager: PreferencesManager
+    private val context: Context
 ) : TopicRepository {
     private lateinit var topics: List<Topic>
 
     override suspend fun loadTopics(): List<Topic> {
         if (!::topics.isInitialized) {
             val json = when {
-                // 1st try to download JSON
+
                 File(context.filesDir, "questions.json").exists() -> {
                     File(context.filesDir, "questions.json").readText()
                 }
-                else -> { // else try local json file
+                else -> {
                     context.assets.open("questions.json").bufferedReader().use { it.readText() }
                 }
             }
